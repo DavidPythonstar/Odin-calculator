@@ -5,12 +5,17 @@ let clicked = 0
 let num1 = 0;
 let num2 = 0;
 let result = 0;
-console.log(numberButtons)//
-//Getthe clecked button value
+let operators = document.querySelectorAll('.operator')
+let operator = ''
+let equal = 
+
+// Clearing the screen
 clearButton.addEventListener('click', ()=>
 {
     screen.textContent = ""
 })
+
+// Getting the clicked button
 numberButtons.forEach((button) => {
     button.addEventListener('click', (event) => {
         clicked = event.target.textContent;
@@ -21,7 +26,6 @@ numberButtons.forEach((button) => {
 
     })
 })
-console.log(clicked)
 
 //creating the arithmetic functions
 function add(number1, number2)
@@ -30,29 +34,25 @@ function add(number1, number2)
     return sum
 }
 
-console.log(add(1,1));
-console.log(result)
 function divide(number1,number2)
 {
     result = number1/number2;
     return result;
 }
 
-console.log(divide(10,2));
 
 function mult(number1,number2)
 {
     result = number1*number2;
     return result;
 }
-console.log(mult(10,2));
 
 function sub(number1,number2)
 {
     result = number1-number2;
     return result;
 }
-console.log(sub(10,2));
+
 
 function operate(operator,num1,num2)
 {
@@ -65,7 +65,19 @@ function operate(operator,num1,num2)
     else if (operator === '/')
         result = divide(num1,num2);
 }
-operate('*',2,2);
-console.log(result)
+
+
+operators.forEach((button) =>
+{
+    button.addEventListener('click', (button)=>
+    {
+        operator = button.target.textContent
+        
+
+    })
+
+})
+
+
 
 
